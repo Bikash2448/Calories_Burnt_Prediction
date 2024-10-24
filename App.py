@@ -10,7 +10,7 @@ def home_page():
     return render_template('index.html')
 
 
-@app.route('/predict',methods=['POST'])
+@app.route('/predict',methods=['POST','GET'])
 def calculate():
     if request.method=='POST':
         features = [int(x) for x in request.form.values()]
