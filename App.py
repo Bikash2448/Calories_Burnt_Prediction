@@ -17,7 +17,7 @@ def calculate():
         final_features = [np.array(features)]
         prediction = model.predict(final_features)
         output = round(prediction[0] , 2)
-        return render_template('index.html', results = output)
+        return render_template('results.html', results = output)
 
 
 

@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,18 +7,20 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #74ade5;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background-image: url("https://insights.som.yale.edu/sites/default/files/styles/max_2600x2600/public/2023-06/AI%20possible%20futures.jpg?itok=MjcAhIB3");
+            /* background-image: url("../templates/bg\ \(1\).jpg"); */
+            /* background-image: url('../templates/bg\ \(1\).jpg'); */
             background-size: cover;
             /* background-attachment: fixed; */
             background-repeat:no-repeat;
         }
         .container {
-            background-color: #9876e1;
+            /* background-color: #9876e1; */
+            background-color: transparent;
             height: max-content;
             width: max-content;
             margin-top: 6%;
@@ -29,6 +31,7 @@
             justify-content: center;
             align-items: center;
             border-radius: 8px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
 
         }
         
@@ -38,6 +41,8 @@
         }
         .form-group label {
             font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: gray;
         }
         .btn-primary {
             width: 100%;
@@ -50,6 +55,19 @@
             color:rgb(43, 1, 1);
             font-weight: bold;
         }
+        .form-control{
+            background-color: transparent;
+        }
+        .custom-input {
+        background-color: transparent; /* Default background */
+        transition: background-color 0.3s ease; /* Smooth transition */
+    }
+
+    /* When input is focused */
+    .custom-input:focus {
+        background-color: transparent; /* Make background transparent */
+        outline: none; /* Remove default focus outline */
+    }
     </style>
 </head>
 <body>
@@ -58,27 +76,27 @@
         <form action="/predict" method="post">
             <div class="form-group">
                 <label for="Gender_Male">Gender (1 for Male, 0 for Female):</label>
-                <input type="number" class="form-control" id="Gender_Male" name="Gender_Male" required>
+                <input type="number" class="form-control custom-input" id="Gender_Male" name="Gender_Male" required>
             </div>
             <div class="form-group">
                 <label for="Age">Age:</label>
-                <input type="number" class="form-control" id="Age" name="Age" required>
+                <input type="number" class="form-control custom-input" id="Age" name="Age" required>
             </div>
             <div class="form-group">
                 <label for="BMI">Height(in cm):</label>
-                <input type="number" step="0.01" class="form-control" id="BMI" name="BMI" required>
+                <input type="number" step="0.01" class="form-control custom-input" id="BMI" name="BMI" required>
             </div>
             <div class="form-group">
                 <label for="Duration">Duration (minutes):</label>
-                <input type="number" class="form-control" id="Duration" name="Duration" required>
+                <input type="number" class="form-control custom-input" id="Duration" name="Duration" required>
             </div>
             <div class="form-group">
                 <label for="Heart_Rate">Heart Rate:</label>
-                <input type="number" class="form-control" id="Heart_Rate" name="Heart_Rate" required>
+                <input type="number" class="form-control custom-input" id="Heart_Rate" name="Heart_Rate" required>
             </div>
             <div class="form-group">
-                <label for="Body_Temp">Body Temperature:</label>
-                <input type="number" step="0.1" class="form-control" id="Body_Temp" name="Body_Temp" required>
+                <label for="Body_Temp">Body Temperature(in celsius):</label>
+                <input type="number" step="0.1" class="form-control custom-input" id="Body_Temp" name="Body_Temp" required>
             </div>
             <button type="submit" class="btn btn-primary">Predict</button>
         </form>
@@ -87,6 +105,101 @@
             <h3>Predicted Calories Burned: {{ results }}</h3>
         </div>
         {% endif %}
+    </div>
+</body>
+</html> -->
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercise Calories Prediction</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #74ade5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            background-color: transparent;
+            height: max-content;
+            width: max-content;
+            margin-top: 6%;
+            margin-bottom: 6%;
+            padding: 1.5%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            border: 3px solid rgba(255, 255, 255, 0.5);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            color: gray;
+        }
+        .btn-primary {
+            width: 100%;
+        }
+        .form-control {
+            background-color: transparent;
+        }
+        .custom-input {
+            background-color: transparent;
+            transition: background-color 0.3s ease;
+        }
+        .custom-input:focus {
+            background-color: transparent;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Exercise Calories Prediction</h2>
+        <form action="/predict" method="post">
+            <div class="form-group">
+                <label for="Gender_Male">Gender (1 for Male, 0 for Female):</label>
+                <input type="number" class="form-control custom-input" id="Gender_Male" name="Gender_Male" required>
+            </div>
+            <div class="form-group">
+                <label for="Age">Age:</label>
+                <input type="number" class="form-control custom-input" id="Age" name="Age" required>
+            </div>
+            <div class="form-group">
+                <label for="BMI">Height (in cm):</label>
+                <input type="number" step="0.01" class="form-control custom-input" id="BMI" name="BMI" required>
+            </div>
+            <div class="form-group">
+                <label for="Duration">Duration (minutes):</label>
+                <input type="number" class="form-control custom-input" id="Duration" name="Duration" required>
+            </div>
+            <div class="form-group">
+                <label for="Heart_Rate">Heart Rate:</label>
+                <input type="number" class="form-control custom-input" id="Heart_Rate" name="Heart_Rate" required>
+            </div>
+            <div class="form-group">
+                <label for="Body_Temp">Body Temperature (in celsius):</label>
+                <input type="number" step="0.1" class="form-control custom-input" id="Body_Temp" name="Body_Temp" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Predict</button>
+        </form>
     </div>
 </body>
 </html>
