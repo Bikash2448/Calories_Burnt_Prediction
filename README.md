@@ -21,16 +21,3 @@ This project is a **Flask-based web application** that serves a **Random Forest 
 - **Render** (Cloud Deployment)
 
 
-## 📂 Project Structure  
-
-/calories burned Prediction
-│── app.py # Flask Web API
-│── model.py # Machine Learning Model Training
-│── random_forest_model.pkl # Serialized ML Model
-│── templates/ # HTML Templates for Web Interface
-│ ├── index.html # Input Form
-│ ├── results.html # Prediction Output
-│── requirements.txt # Required Python Packages
-│── Procfile # Render Deployment Configuration
-│── README.md # Project Documentation
-
